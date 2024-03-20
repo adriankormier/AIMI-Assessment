@@ -1,0 +1,80 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+// Subtle background color to delineate between cards
+body {
+  background-color: rgb(244, 245, 247)
+}
+
+// Main content layout with simple grid pattern that adds more columns at higher screen widths.
+main {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+// Each card fills the width of it's column and adds a little padding for style.
+.card {
+  width: 100%;
+  padding: .25rem;
+}
+
+// Hide checkbox so label can be styled based "checked" status.
+input[type="checkbox"] {
+  display: none;
+}
+
+// Center label within card, make it fill the available space, padding-top creates aspect ratio based on parent's width.
+label {
+  margin: auto;
+  width: 100%;
+  padding-top: 100%;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer; // Not in demo, but I like to add this on interactable items.
+}
+
+// When label sees that checkbox is selected, create outline.
+input[type="checkbox"]:checked + label {
+  outline: .25rem solid red;
+}
+
+// "Fullscreen" icon for top left of image
+.material-symbols-outlined {
+  position: absolute;
+  color: red;
+  margin-top: .2rem;
+  margin-left: .1rem;
+  width: 3em;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 300,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+// Invisible footer for Intersection Observer
+#footer {
+  height: 4px;
+  margin-top: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+  main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@include media-breakpoint-up(md) {
+  main {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@include media-breakpoint-up(lg) {
+  main {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+
+
