@@ -5,7 +5,7 @@
 
 # Node artifact files
 node_modules/
-dist/
+# dist/ Removed so that bundled output can be viewed.
 
 # Compiled Java class files
 *.class
